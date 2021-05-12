@@ -43,7 +43,7 @@
       "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
       "react/react-in-jsx-scope": "off",
       "react/jsx-props-no-spreading": "off",
-      "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+      "import/no-extraneous-dependencies": "off",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
       "@typescript-eslint/explicit-module-boundary-types": "off",
@@ -51,6 +51,8 @@
       "import/prefer-default-export": "off",
       "@typescript-eslint/no-non-null-assertion": "off",
       "object-curly-newline": "off",
+      "indent": "off",
+      "no-use-before-define": "off",
       "import/extensions": [
         "error",
         "ignorePackages",

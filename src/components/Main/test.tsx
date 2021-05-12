@@ -10,6 +10,10 @@ describe('<Main />', () => {
       screen.getByRole('heading', { name: /react avançado/i }),
     ).toBeInTheDocument();
 
+    expect(
+      screen.getByRole('heading', { name: /react avançado/i }).parentElement,
+    ).toHaveStyle({ 'background-color': '#06092b' });
+
     expect(container.firstChild).toMatchSnapshot();
   });
 
