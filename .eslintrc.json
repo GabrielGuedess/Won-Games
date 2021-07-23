@@ -53,6 +53,8 @@
       "object-curly-newline": "off",
       "indent": "off",
       "no-use-before-define": "off",
+      "import/no-unresolved": "off",
+      "react/require-default-props": "off",
       "import/extensions": [
         "error",
         "ignorePackages",
