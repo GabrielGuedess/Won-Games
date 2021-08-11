@@ -55,6 +55,7 @@
       "no-use-before-define": "off",
       "import/no-unresolved": "off",
       "react/require-default-props": "off",
+      "operator-linebreak": "off",
       "import/extensions": [
         "error",
         "ignorePackages",
