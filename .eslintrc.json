@@ -56,6 +56,7 @@
       "import/no-unresolved": "off",
       "react/require-default-props": "off",
       "operator-linebreak": "off",
+      "no-unused-expressions": "off",
       "import/extensions": [
         "error",
         "ignorePackages",
