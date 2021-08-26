@@ -21,32 +21,26 @@ const props = {
   freeGames: [gamesMock[0]],
 };
 
+jest.mock('components/Showcase', () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="Mock Showcase" />;
+  },
+}));
+
+jest.mock('components/BannerSlider', () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="Mock BannerSlider" />;
+  },
+}));
+
 describe('<Home />', () => {
-  it('should render menu and footer', () => {
+  it('should render banner and showcases', () => {
     renderWithTheme(<Home {...props} />);
 
-    expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument();
+    expect(screen.getByTestId(/Mock BannerSlider/i)).toBeInTheDocument();
 
-    expect(
-      screen.getByRole('heading', { name: /follow us/i }),
-    ).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /News/i })).toBeInTheDocument();
-
-    expect(
-      screen.getByRole('heading', { name: /Most Popular/i }),
-    ).toBeInTheDocument();
-
-    expect(
-      screen.getByRole('heading', { name: /Upcomming/i }),
-    ).toBeInTheDocument();
-
-    expect(
-      screen.getByRole('heading', { name: /Free Games/i }),
-    ).toBeInTheDocument();
-    expect(screen.getAllByText(/defy death 1/i)).toHaveLength(1);
-
-    expect(screen.getAllByText(/population zero/i)).toHaveLength(5);
-
-    expect(screen.getAllByText(/read dead is back!/i)).toHaveLength(3);
+    expect(screen.getAllByTestId(/Mock Showcase/i)).toHaveLength(5);
   });
 });
