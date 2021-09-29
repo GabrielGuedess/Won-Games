@@ -64,6 +64,8 @@
       "jsx-a11y/no-noninteractive-element-to-interactive-role": "off",
       "jsx-a11y/click-events-have-key-events": "off",
       "no-shadow": "off",
+      "jsx-a11y/aria-role": "off",
+      "react/no-array-index-key": "off",
       "import/extensions": [
         "error",
         "ignorePackages",
