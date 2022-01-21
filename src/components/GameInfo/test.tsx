@@ -6,11 +6,11 @@ import GameInfo from '.';
 const props = {
   title: 'My Game Title',
   description: 'Game Description',
-  price: '210.00',
+  price: 210,
 };
 
 describe('<GameInfo />', () => {
-  it('should render the game informations', () => {
+  it('should render the game information', () => {
     const { container } = renderWithTheme(<GameInfo {...props} />);
 
     expect(
@@ -19,7 +19,7 @@ describe('<GameInfo />', () => {
 
     expect(screen.getByText(props.description)).toBeInTheDocument();
 
-    expect(screen.getByText(`$${props.price}`)).toBeInTheDocument();
+    expect(screen.getByText(/\$210.00/)).toBeInTheDocument();
 
     expect(container.firstChild).toMatchSnapshot();
   });

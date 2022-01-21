@@ -98,6 +98,8 @@ exports['<GameCard /> should render correctly 1'] = `
 
 .c3 {
   max-width: calc(100% - 2.5rem);
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .c4 {
@@ -162,19 +164,21 @@ exports['<GameCard /> should render correctly 1'] = `
 <article
   class="c0"
 >
-  <div
+  <a
     class="c1"
+    href="/game/population-zero"
   >
     <img
       alt="Red Dead"
       src="./img/red-dead-img.jpg"
     />
-  </div>
+  </a>
   <div
     class="c2"
   >
-    <div
+    <a
       class="c3"
+      href="/game/population-zero"
     >
       <h3
         class="c4"
@@ -186,7 +190,7 @@ exports['<GameCard /> should render correctly 1'] = `
       >
         Rockstar Games
       </h4>
-    </div>
+    </a>
     <div
       class="c6"
       role="button"
@@ -215,7 +219,7 @@ exports['<GameCard /> should render correctly 1'] = `
       <div
         class="c9"
       >
-        R$ 235,00
+        $235.00
       </div>
       <button
         class="c10"
