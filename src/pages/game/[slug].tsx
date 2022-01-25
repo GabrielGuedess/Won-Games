@@ -3,8 +3,6 @@ import { initializeApollo } from 'utils/apollo';
 
 import Game, { GameTemplateProps } from 'templates/Game';
 
-import gamesMock from 'components/GameCardSlider/mock';
-import highlightMock from 'components/Highlight/mock';
 import { QueryGames, QueryGamesVariables } from 'graphql/generated/QueryGames';
 import { QUERY_GAMES, QUERY_GAME } from 'graphql/queries/games';
 import {
@@ -12,6 +10,14 @@ import {
   QueryGameBySlugVariables,
 } from 'graphql/generated/QueryGameBySlug';
 import { GetStaticProps } from 'next';
+import { QueryRecommended } from 'graphql/generated/QueryRecommended';
+import { QUERY_RECOMMENDED } from 'graphql/queries/recommended';
+import { gamesMapper, highlightMapper } from 'utils/mappers';
+import { QUERY_UPCOMING } from 'graphql/queries/upcoming';
+import {
+  QueryUpcoming,
+  QueryUpcomingVariables,
+} from 'graphql/generated/QueryUpcoming';
 
 const apolloClient = initializeApollo();
 
@@ -51,6 +57,21 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const game = data.games[0];
 
+  const TODAY = new Date().toISOString().slice(0, 10);
+
+  const {
+    data: { showcase, upcomingGames },
+  } = await apolloClient.query<QueryUpcoming, QueryUpcomingVariables>({
+    query: QUERY_UPCOMING,
+    variables: { date: TODAY },
+  });
+
+  const {
+    data: { recommended },
+  } = await apolloClient.query<QueryRecommended>({
+    query: QUERY_RECOMMENDED,
+  });
+
   return {
     props: {
       revalidate: 60,
@@ -77,9 +98,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         rating: game.rating,
         genres: game.categories.map(category => category.name),
       },
-      upcomingGames: gamesMock,
-      upcomingHighlight: highlightMock,
-      recommendedGames: gamesMock,
+      upcomingTitle: showcase?.upcomingGames?.title,
+      upcomingHighlight: highlightMapper(showcase?.upcomingGames?.highlight),
+      upcomingGames: gamesMapper(upcomingGames),
+      recommendedTitle: recommended?.section?.title,
+      recommendedGames: gamesMapper(recommended?.section?.games),
     },
   };
 };
