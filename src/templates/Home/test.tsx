@@ -16,9 +16,12 @@ const props = {
   mostPopularGames: [gamesMock[0]],
   upcomingHighlight: highlightMock,
   upcomingGames: [gamesMock[0]],
-  upcomingMoreGames: [gamesMock[0]],
   freeHighlight: highlightMock,
   freeGames: [gamesMock[0]],
+  newGamesTitle: 'New Games',
+  mostPopularGamesTitle: 'Popular Games',
+  upcomingGamesTitle: 'Upcoming Games',
+  freeGamesTitle: 'Free Games',
 };
 
 jest.mock('components/Showcase', () => ({
@@ -41,6 +44,6 @@ describe('<Home />', () => {
 
     expect(screen.getByTestId(/Mock BannerSlider/i)).toBeInTheDocument();
 
-    expect(screen.getAllByTestId(/Mock Showcase/i)).toHaveLength(5);
+    expect(screen.getAllByTestId(/Mock Showcase/i)).toHaveLength(4);
   });
 });

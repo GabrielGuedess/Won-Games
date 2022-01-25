@@ -7,6 +7,21 @@
 // START Enums and Input Objects
 //==============================================================
 
+export enum ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT {
+  left = "left",
+  right = "right",
+}
+
+export enum ENUM_COMPONENTPAGERIBBON_COLOR {
+  primary = "primary",
+  secondary = "secondary",
+}
+
+export enum ENUM_COMPONENTPAGERIBBON_SIZE {
+  normal = "normal",
+  small = "small",
+}
+
 export enum ENUM_GAMES_RATING {
   BR12 = "BR12",
   BR14 = "BR14",
