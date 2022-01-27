@@ -7,6 +7,7 @@ module.exports = {
     '!src/**/stories.tsx',
     '!src/pages/**/*.tsx',
     '!src/components/**/mock.ts',
+    '!src/templates/**/mock(s)?.ts',
     '!src/styles/**/*.ts',
     '!src/utils/**/*.ts(x)?',
     '!src/types/**/*.d.ts',
