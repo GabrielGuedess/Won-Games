@@ -3,6 +3,7 @@ import {
   QueryHome_banners,
   QueryHome_sections_freeGames_highlight,
 } from 'graphql/generated/QueryHome';
+import { imageConvert } from './imageConvert';
 
 export const bannerMapper = (banners: QueryHome_banners[]) =>
   banners.map(banner => ({
@@ -24,9 +25,7 @@ export const gamesMapper = (games: QueryGames_games[] | null | undefined) =>
     title: game.name,
     slug: game.slug,
     developer: game.developers[0].name,
-    img: game.cover?.url.includes('https://res.cloudinary.com/won-games/')
-      ? game.cover.url
-      : `http://localhost:1337${game.cover?.url}`,
+    img: imageConvert(game!.cover!.url),
     price: game.price,
   }));
 
@@ -36,16 +35,8 @@ export const highlightMapper = (
   highlight && {
     title: highlight.title,
     subtitle: highlight.subtitle,
-    backgroundImage: highlight.background?.url.includes(
-      'https://res.cloudinary.com/won-games/',
-    )
-      ? highlight.background.url
-      : `http://localhost:1337${highlight.background?.url}`,
-    floatImage: highlight.floatImage?.url.includes(
-      'https://res.cloudinary.com/won-games/',
-    )
-      ? highlight.floatImage.url
-      : `http://localhost:1337${highlight.floatImage?.url}`,
+    backgroundImage: imageConvert(highlight!.background!.url),
+    floatImage: imageConvert(highlight!.floatImage!.url),
     buttonLabel: highlight.buttonLabel,
     buttonLink: highlight.buttonLink,
     alignment: highlight.alignment,

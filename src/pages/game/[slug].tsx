@@ -18,6 +18,7 @@ import {
   QueryUpcoming,
   QueryUpcomingVariables,
 } from 'graphql/generated/QueryUpcoming';
+import { imageConvert } from 'utils/imageConvert';
 
 const apolloClient = initializeApollo();
 
@@ -75,18 +76,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       revalidate: 60,
-      cover: game.cover?.src.includes('https://res.cloudinary.com/won-games/')
-        ? game.cover?.src
-        : `http://localhost:1337${game.cover?.src}`,
+      cover: imageConvert(game.cover!.src),
       gameInfo: {
         title: game.name,
         price: game.price,
         description: game.short_description,
       },
       gallery: game.gallery.map(image => ({
-        src: image.src.includes('https://res.cloudinary.com/won-games/')
-          ? image.src
-          : `http://localhost:1337${image.src}`,
+        src: imageConvert(image.src),
         label: image.label,
       })),
       description: game.description,
