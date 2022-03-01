@@ -21,6 +21,7 @@ export interface QueryRecommended_recommended_section_highlight_floatImage {
 
 export interface QueryRecommended_recommended_section_highlight {
   __typename: "ComponentPageHighlight";
+  id: string;
   title: string;
   subtitle: string;
   background: QueryRecommended_recommended_section_highlight_background | null;
@@ -42,6 +43,7 @@ export interface QueryRecommended_recommended_section_games_developers {
 
 export interface QueryRecommended_recommended_section_games {
   __typename: "Games";
+  id: string;
   name: string;
   slug: string;
   cover: QueryRecommended_recommended_section_games_cover | null;

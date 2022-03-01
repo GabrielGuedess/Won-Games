@@ -21,6 +21,7 @@ export interface QueryUpcoming_upcomingGames_developers {
 
 export interface QueryUpcoming_upcomingGames {
   __typename: "Games";
+  id: string;
   name: string;
   slug: string;
   cover: QueryUpcoming_upcomingGames_cover | null;
@@ -40,6 +41,7 @@ export interface QueryUpcoming_showcase_upcomingGames_highlight_floatImage {
 
 export interface QueryUpcoming_showcase_upcomingGames_highlight {
   __typename: "ComponentPageHighlight";
+  id: string;
   title: string;
   subtitle: string;
   background: QueryUpcoming_showcase_upcomingGames_highlight_background | null;

@@ -50,6 +50,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   >({
     query: QUERY_GAME,
     variables: { slug: `${params?.slug}` },
+    fetchPolicy: 'no-cache',
   });
 
   if (!data.games.length) {
@@ -74,8 +75,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   });
 
   return {
+    revalidate: 60,
     props: {
-      revalidate: 60,
       cover: imageConvert(game.cover!.src),
       gameInfo: {
         title: game.name,

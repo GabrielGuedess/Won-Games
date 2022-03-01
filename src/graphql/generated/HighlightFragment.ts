@@ -21,6 +21,7 @@ export interface HighlightFragment_floatImage {
 
 export interface HighlightFragment {
   __typename: "ComponentPageHighlight";
+  id: string;
   title: string;
   subtitle: string;
   background: HighlightFragment_background | null;

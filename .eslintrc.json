@@ -68,6 +68,7 @@
       "jsx-a11y/aria-role": "off",
       "react/no-array-index-key": "off",
       "react/jsx-wrap-multilines": "off",
+      "no-confusing-arrow": "off",
       "import/extensions": [
         "error",
         "ignorePackages",

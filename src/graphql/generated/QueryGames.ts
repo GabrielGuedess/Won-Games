@@ -19,6 +19,7 @@ export interface QueryGames_games_developers {
 
 export interface QueryGames_games {
   __typename: "Games";
+  id: string;
   name: string;
   slug: string;
   cover: QueryGames_games_cover | null;

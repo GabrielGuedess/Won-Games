@@ -1,6 +1,10 @@
 module.exports = {
   stories: ['../src/components/**/stories.tsx'],
-  addons: ['@storybook/addon-essentials'],
+  addons: [
+    '@storybook/addon-essentials',
+    'storybook-dark-mode',
+    'storybook-addon-designs',
+  ],
   babel: async options => ({
     ...options,
     plugins: [

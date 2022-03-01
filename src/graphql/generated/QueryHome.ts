@@ -48,6 +48,7 @@ export interface QueryHome_newGames_developers {
 
 export interface QueryHome_newGames {
   __typename: "Games";
+  id: string;
   name: string;
   slug: string;
   cover: QueryHome_newGames_cover | null;
@@ -67,6 +68,7 @@ export interface QueryHome_upcomingGames_developers {
 
 export interface QueryHome_upcomingGames {
   __typename: "Games";
+  id: string;
   name: string;
   slug: string;
   cover: QueryHome_upcomingGames_cover | null;
@@ -86,6 +88,7 @@ export interface QueryHome_freeGames_developers {
 
 export interface QueryHome_freeGames {
   __typename: "Games";
+  id: string;
   name: string;
   slug: string;
   cover: QueryHome_freeGames_cover | null;
@@ -105,6 +108,7 @@ export interface QueryHome_sections_newGames_highlight_floatImage {
 
 export interface QueryHome_sections_newGames_highlight {
   __typename: "ComponentPageHighlight";
+  id: string;
   title: string;
   subtitle: string;
   background: QueryHome_sections_newGames_highlight_background | null;
@@ -132,6 +136,7 @@ export interface QueryHome_sections_popularGames_highlight_floatImage {
 
 export interface QueryHome_sections_popularGames_highlight {
   __typename: "ComponentPageHighlight";
+  id: string;
   title: string;
   subtitle: string;
   background: QueryHome_sections_popularGames_highlight_background | null;
@@ -153,6 +158,7 @@ export interface QueryHome_sections_popularGames_games_developers {
 
 export interface QueryHome_sections_popularGames_games {
   __typename: "Games";
+  id: string;
   name: string;
   slug: string;
   cover: QueryHome_sections_popularGames_games_cover | null;
@@ -179,6 +185,7 @@ export interface QueryHome_sections_upcomingGames_highlight_floatImage {
 
 export interface QueryHome_sections_upcomingGames_highlight {
   __typename: "ComponentPageHighlight";
+  id: string;
   title: string;
   subtitle: string;
   background: QueryHome_sections_upcomingGames_highlight_background | null;
@@ -206,6 +213,7 @@ export interface QueryHome_sections_freeGames_highlight_floatImage {
 
 export interface QueryHome_sections_freeGames_highlight {
   __typename: "ComponentPageHighlight";
+  id: string;
   title: string;
   subtitle: string;
   background: QueryHome_sections_freeGames_highlight_background | null;
