@@ -1,11 +1,10 @@
-import { screen } from '@testing-library/react';
-import { renderWithTheme } from 'utils/tests/helpers';
+import { render, screen } from 'utils/test-utils';
 
 import Preloader from '.';
 
 describe('<Preloader />', () => {
   it('should render the preloader', () => {
-    renderWithTheme(<Preloader />);
+    render(<Preloader />);
 
     expect(screen.getAllByLabelText(/box/i)).toHaveLength(25);
   });

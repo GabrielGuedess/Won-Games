@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports['<BannerSlider /> should render vetical slider 1'] = `
+exports['<BannerSlider /> should render vertical slider 1'] = `
 .c10 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
