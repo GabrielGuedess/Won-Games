@@ -79,6 +79,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       cover: imageConvert(game.cover!.src),
       gameInfo: {
+        id: game.id,
         title: game.name,
         price: game.price,
         description: game.short_description,

@@ -5,6 +5,7 @@ import theme from 'styles/theme';
 import GameCard, { GameCardProps } from '.';
 
 const props: GameCardProps = {
+  id: '1',
   slug: 'population-zero',
   title: 'Red Dead',
   developer: 'Rockstar Games',
