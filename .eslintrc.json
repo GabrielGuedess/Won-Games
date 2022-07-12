@@ -68,6 +68,7 @@
     "react/jsx-wrap-multilines": "off",
     "no-confusing-arrow": "off",
     "consistent-return": "off",
+    "no-param-reassign": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

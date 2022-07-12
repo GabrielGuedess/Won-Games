@@ -1,3 +1,5 @@
+import { GetServerSidePropsContext } from 'next';
+
 import Wishlist, { WishlistTemplateProps } from 'templates/Wishlist';
 
 import { initializeApollo } from 'utils/apollo';
@@ -7,11 +9,15 @@ import { gamesMapper, highlightMapper } from 'utils/mappers';
 
 import gamesMock from 'components/GameCardSlider/mock';
 
+import protectedRoutes from 'utils/protected-routes';
+
 export default function WishlistPage(props: WishlistTemplateProps) {
   return <Wishlist {...props} />;
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const session = await protectedRoutes(context);
+
   const apolloClient = initializeApollo();
 
   const {
@@ -22,6 +28,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      session,
       games: gamesMock,
       recommendedTitle: recommended?.section?.title,
       recommendedHighlight: highlightMapper(recommended?.section?.highlight),

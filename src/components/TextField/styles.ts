@@ -61,15 +61,20 @@ export const InputWrapper = styled.div`
 
 export const Input = styled.input<IconPositionProps>`
   ${({ theme, iconPosition }) => css`
-  font-family: ${theme.font.family};
-  font-size: ${theme.font.sizes.medium};
-  padding: ${theme.spacings.xxsmall} 0;
-  padding-${iconPosition}: ${theme.spacings.xsmall};
-  background: transparent;
-  border: 0;
-  outline: none;
-  width: 100%;
-  color: ${theme.colors.black};
+    font-family: ${theme.font.family};
+    font-size: ${theme.font.sizes.medium};
+    padding: ${theme.spacings.xxsmall} 0;
+    padding-${iconPosition}: ${theme.spacings.xsmall};\
+    background: transparent;
+    border: 0;
+    outline: none;
+    width: 100%;
+    color: ${theme.colors.black};
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 ${theme.spacings.small} ${theme.colors.lightGray} inset;
+      filter: none
+    }
   `}
 `;
 

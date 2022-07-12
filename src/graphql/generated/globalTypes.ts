@@ -32,6 +32,12 @@ export enum ENUM_GAMES_RATING {
   BRO = "BRO",
 }
 
+export interface UsersPermissionsRegisterInput {
+  username: string;
+  email: string;
+  password: string;
+}
+
 //==============================================================
 // END Enums and Input Objects
 //==============================================================
