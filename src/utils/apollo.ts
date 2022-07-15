@@ -12,8 +12,7 @@ function createApolloClient(session?: Session | null) {
   });
 
   const authLink = setContext((_, { headers }) => {
-    const authorization = session?.jwt ? `Bearer ${session.jwt}` : null;
-
+    const authorization = session?.jwt ? `Bearer ${session?.jwt}` : '';
     return { headers: { ...headers, authorization } };
   });
 
