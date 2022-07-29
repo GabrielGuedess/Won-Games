@@ -1,12 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports['<GameInfo /> should render the game information 1'] = `
-.c7 {
-  display: inline-block;
-  vertical-align: middle;
-  overflow: hidden;
-}
-
 .c1 {
   color: #030517;
   position: relative;
@@ -63,6 +57,12 @@ exports['<GameInfo /> should render the game information 1'] = `
 .c3::before {
   border-left-color: #1f8a7d;
   border-top-color: #1f8a7d;
+}
+
+.c7 {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
 }
 
 .c6 {
@@ -284,6 +284,7 @@ exports['<GameInfo /> should render the game information 1'] = `
     >
       <svg
         aria-hidden="true"
+        aria-label="Add to wishlist"
         class="c7"
         fill="currentColor"
         focusable="false"
@@ -299,7 +300,7 @@ exports['<GameInfo /> should render the game information 1'] = `
         />
       </svg>
       <span>
-        Wishlist
+        Add to wishlist
       </span>
     </button>
   </div>

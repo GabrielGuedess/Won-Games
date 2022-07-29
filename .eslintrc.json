@@ -69,6 +69,7 @@
     "no-confusing-arrow": "off",
     "consistent-return": "off",
     "no-param-reassign": "off",
+    "no-nested-ternary": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

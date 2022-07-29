@@ -11,8 +11,9 @@ function createApolloClient(session?: Session | null) {
     uri: `${process.env.NEXT_PUBLIC_API_URL}/graphql`,
   });
 
-  const authLink = setContext((_, { headers }) => {
-    const authorization = session?.jwt ? `Bearer ${session?.jwt}` : '';
+  const authLink = setContext((_, { headers, session: clientSession }) => {
+    const jwt = session?.jwt || clientSession?.jwt || '';
+    const authorization = jwt ? `Bearer ${jwt}` : '';
     return { headers: { ...headers, authorization } };
   });
 
@@ -39,7 +40,7 @@ export function initializeApollo(
   return apolloClient;
 }
 
-export function useApollo(initialState = null, session?: Session | null) {
+export function useApollo(initialState = null, session?: Session) {
   const store = useMemo(
     () => initializeApollo(initialState, session),
     [initialState, session],
