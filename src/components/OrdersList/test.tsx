@@ -1,6 +1,7 @@
 import { render, screen } from 'utils/test-utils';
 
 import OrdersList from '.';
+
 import mock from './mock';
 
 jest.mock('components/Empty', () => ({

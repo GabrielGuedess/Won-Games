@@ -72,6 +72,7 @@
     "no-nested-ternary": "off",
     "no-return-await": "off",
     "no-useless-return": "off",
+    "function-paren-newline": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

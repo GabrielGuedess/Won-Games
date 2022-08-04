@@ -116,7 +116,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
           </Heading>
 
           {freeGames ? (
-            <S.FreeGames>Only free games, click buy an enjoy!</S.FreeGames>
+            <S.FreeGames>Only free games, click buy and enjoy!</S.FreeGames>
           ) : (
             <CardElement
               options={{
