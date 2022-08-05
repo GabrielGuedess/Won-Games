@@ -1,9 +1,14 @@
-import NextAuth, { NextAuthOptions } from 'next-auth';
+import NextAuth, { User, Session } from 'next-auth';
+import { JWT } from 'next-auth/jwt';
 import Providers from 'next-auth/providers';
-import { GenericObject } from 'next-auth/_utils';
 import { NextApiRequest, NextApiResponse } from 'next-auth/internals/utils';
 
-const options: NextAuthOptions = {
+type AuthorizeProps = {
+  email: string;
+  password: string;
+};
+
+const options = {
   pages: {
     signIn: '/sign-in',
   },
@@ -11,7 +16,7 @@ const options: NextAuthOptions = {
     Providers.Credentials({
       name: 'Sign-in',
       credentials: {},
-      async authorize({ email, password }: GenericObject) {
+      async authorize({ email, password }: AuthorizeProps) {
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/auth/local`,
           {
@@ -30,17 +35,17 @@ const options: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    session: async (session: GenericObject, user: GenericObject) => {
+    session: async (session: Session, user: User) => {
       session.jwt = user.jwt;
       session.id = user.id;
 
       return Promise.resolve(session);
     },
-    jwt: async (token: GenericObject, user: GenericObject) => {
+    jwt: async (token: JWT, user: User) => {
       if (user) {
         token.id = user.id;
         token.email = user.email;
-        token.name = user.username;
+        token.name = user.username as string;
         token.jwt = user.jwt;
       }
 

@@ -1,7 +1,7 @@
 export function imageConvert(url: string) {
-  const image = url.includes('https://res.cloudinary.com/won-games/')
+  const image = url.includes('https://res.cloudinary.com/')
     ? url
-    : `http://localhost:1337${url}`;
+    : `${process.env.NEXT_PUBLIC_IMAGE_HOST}${url}`;
 
   return image;
 }

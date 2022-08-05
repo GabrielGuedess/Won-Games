@@ -13,7 +13,7 @@ const props = {
 
 describe('<Highlight />', () => {
   it('should render headings and button', () => {
-    render(<Highlight {...props} />);
+    const { container } = render(<Highlight {...props} />);
 
     expect(
       screen.getByRole('heading', { name: /heading 1/i }),
@@ -24,32 +24,34 @@ describe('<Highlight />', () => {
     ).toBeInTheDocument();
 
     expect(screen.getByRole('link', { name: /buy now/i })).toBeInTheDocument();
+
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should render background image', () => {
-    const { container } = render(<Highlight {...props} />);
+    render(<Highlight {...props} />);
 
-    expect(container.firstChild).toHaveStyle({
-      backgroundImage: `url(${props.backgroundImage})`,
-    });
+    expect(
+      screen.getByRole('img', { name: `${props.title}-background` }),
+    ).toHaveAttribute('src', `${props.backgroundImage}`);
   });
 
   it('should render float image', () => {
     render(<Highlight {...props} floatImage="/float-image.png" />);
 
-    expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
-      'src',
-      '/float-image.png',
-    );
+    expect(
+      screen.getByRole('img', { name: `${props.title}-float` }),
+    ).toHaveAttribute('src', '/float-image.png');
   });
 
-  it('should render align rigth by default', () => {
+  it('should render align right by default', () => {
     const { container } = render(<Highlight {...props} />);
 
     expect(container.firstChild).toHaveStyleRule(
       'grid-template-areas',
       "'floatimage content'",
     );
+
     expect(container.firstChild).toHaveStyleRule('text-align', 'right', {
       modifier: `${S.Content}`,
     });
@@ -62,6 +64,7 @@ describe('<Highlight />', () => {
       'grid-template-areas',
       "'content floatimage'",
     );
+
     expect(container.firstChild).toHaveStyleRule('text-align', 'left', {
       modifier: `${S.Content}`,
     });
