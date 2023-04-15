@@ -1,3 +1,5 @@
+/// <reference path="../support/index.d.ts" />
+
 import { createUser, UserProps } from '../support/generate';
 
 describe('Checkout', () => {
