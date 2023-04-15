@@ -17,7 +17,7 @@ describe('bannerMapper()', () => {
   it('should return the right format when mapped', () => {
     const banner = {
       image: {
-        url: '/image.jpg',
+        url: 'https://res.cloudinary.com/image.jpg',
       },
       title: 'Banner title',
       subtitle: 'Banner subtitle',
@@ -34,7 +34,7 @@ describe('bannerMapper()', () => {
 
     expect(bannerMapper([banner])).toStrictEqual([
       {
-        img: 'http://localhost:1337/image.jpg',
+        img: 'https://res.cloudinary.com/image.jpg',
         title: 'Banner title',
         subtitle: 'Banner subtitle',
         buttonLabel: 'button label',
@@ -63,7 +63,7 @@ describe('gamesMapper()', () => {
       ],
       slug: 'game',
       cover: {
-        url: '/image.jpg',
+        url: 'https://res.cloudinary.com/image.jpg',
       },
       price: 10,
     } as QueryGames_games;
@@ -74,7 +74,7 @@ describe('gamesMapper()', () => {
         title: 'game',
         slug: 'game',
         developer: 'developer',
-        img: 'http://localhost:1337/image.jpg',
+        img: 'https://res.cloudinary.com/image.jpg',
         price: 10,
       },
     ]);
@@ -92,13 +92,13 @@ describe('highlightMapper()', () => {
       title: 'title',
       subtitle: 'subtitle',
       background: {
-        url: '/image.jpg',
+        url: 'https://res.cloudinary.com/image.jpg',
       },
       buttonLabel: 'button label',
       buttonLink: 'button link',
       alignment: 'right',
       floatImage: {
-        url: '/image.jpg',
+        url: 'https://res.cloudinary.com/image.jpg',
       },
     } as QueryHome_sections_newGames_highlight;
 
@@ -106,11 +106,11 @@ describe('highlightMapper()', () => {
       id: '2',
       title: 'title',
       subtitle: 'subtitle',
-      backgroundImage: 'http://localhost:1337/image.jpg',
+      backgroundImage: 'https://res.cloudinary.com/image.jpg',
       buttonLabel: 'button label',
       buttonLink: 'button link',
       alignment: 'right',
-      floatImage: 'http://localhost:1337/image.jpg',
+      floatImage: 'https://res.cloudinary.com/image.jpg',
     });
   });
 });
@@ -124,7 +124,7 @@ describe('cartMapper()', () => {
     const game = {
       id: '1',
       cover: {
-        url: '/image.jpg',
+        url: 'https://res.cloudinary.com/image.jpg',
       },
       name: 'game',
       price: 10,
@@ -133,7 +133,7 @@ describe('cartMapper()', () => {
     expect(cartMapper([game])).toStrictEqual([
       {
         id: '1',
-        img: 'http://localhost:1337/image.jpg',
+        img: 'https://res.cloudinary.com/image.jpg',
         title: 'game',
         price: '$10.00',
       },
@@ -165,7 +165,7 @@ describe('ordersMapper()', () => {
             ],
             slug: 'game',
             cover: {
-              url: '/image.jpg',
+              url: 'https://res.cloudinary.com/image.jpg',
             },
             price: 10,
           },
@@ -188,7 +188,7 @@ describe('ordersMapper()', () => {
             title: 'game',
             downloadLink:
               'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
-            img: 'http://localhost:1337/image.jpg',
+            img: 'https://res.cloudinary.com/image.jpg',
             price: '$10.00',
           },
         ],
@@ -215,7 +215,7 @@ describe('ordersMapper()', () => {
             ],
             slug: 'game',
             cover: {
-              url: '/image.jpg',
+              url: 'https://res.cloudinary.com/image.jpg',
             },
             price: 0,
           },
@@ -238,7 +238,7 @@ describe('ordersMapper()', () => {
             title: 'game',
             downloadLink:
               'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
-            img: 'http://localhost:1337/image.jpg',
+            img: 'https://res.cloudinary.com/image.jpg',
             price: 'FREE',
           },
         ],

@@ -11,7 +11,7 @@ import { imageConvert } from '../imageConvert';
 
 export const bannerMapper = (banners: QueryHome_banners[]) =>
   banners.map(banner => ({
-    img: `http://localhost:1337${banner.image?.url}`,
+    img: banner.image?.url,
     title: banner.title,
     subtitle: banner.subtitle,
     buttonLabel: banner.button?.label,

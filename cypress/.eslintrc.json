@@ -3,5 +3,8 @@
   "extends": ["plugin:cypress/recommended"],
   "env": { "cypress/globals": true },
   "parser": "@typescript-eslint/parser",
-  "ignorePatterns": ["**/*.html"]
+  "ignorePatterns": ["**/*.html"],
+  "rules": {
+    "cypress/no-unnecessary-waiting": "off"
+  }
 }
