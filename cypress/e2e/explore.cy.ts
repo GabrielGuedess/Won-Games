@@ -33,15 +33,19 @@ describe('Explore Page', () => {
   });
 
   it('should order by price', () => {
-    cy.findByText(/highest to lowest/i).click();
+    cy.findByText(/lowest to highest/i).click();
 
-    cy.findByText(/free/i).click();
+    cy.findByText('Free').click();
+    cy.wait(1000);
+
     cy.location('href').should('contain', 'price_lte=0');
     cy.getByDataCy('game-card')
       .first()
       .within(() => {
         cy.findByText(/free/i).should('exist');
       });
+
+    cy.findByText(/highest to lowest/i).click();
 
     cy.findByText('Under $50').click();
     cy.location('href').should('contain', 'price_lte=50');
